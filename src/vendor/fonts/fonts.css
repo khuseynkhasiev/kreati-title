@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Sansation Light";
+    font-weight: 300;
+    src: local("Sansation Light"),
+    url(./Sansation-Light.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Sansation";
+    font-weight: 400;
+    src: local("Sansation"),
+    url(./Sansation-Regular.ttf) format("truetype");
+}
