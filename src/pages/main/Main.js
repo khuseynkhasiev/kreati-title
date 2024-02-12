@@ -1,5 +1,5 @@
 import './main.scss';
-import {useState} from "react";
+import {useRef, useState} from "react";
 import backgroundImage from '../../image/main-background.png';
 import {useEffect} from "react";
 
@@ -8,18 +8,9 @@ export default function Main() {
     const [decrementScaleSvg, setDecrementScaleSvg] = useState(false);
     const [positionSvg, setPositionSvg] = useState(false);
 
-    const [width, setWidth] = useState(window.innerWidth < 768);
-
     useEffect(() => {
-        // Получаем все элементы path
-        const paths = document.querySelectorAll('svg path');
-
-        // Задаем стили для плавной анимации
-        // paths.forEach(path => {
-        //     path.style.transition = 'fill-opacity 2s ease-in-out';
-        // });
-
         const changeAnimation = () => {
+            const paths = document.querySelectorAll('svg path');
             const time = 300;
             setTimeout(() => {
                 const path = paths[0];
@@ -54,10 +45,10 @@ export default function Main() {
                 const path = paths[7];
                 path.style.fillOpacity = 1;
             }, time * 5)
-            setTimeout(() => {
-                const path = paths[8];
-                path.style.fillOpacity = 1;
-            }, time)
+            // setTimeout(() => {
+            //     const path = paths[8];
+            //     path.style.fillOpacity = 1;
+            // }, time)
             setTimeout(() => {
                 setDecrementScaleSvg(true);
             }, 2000)
@@ -99,22 +90,36 @@ export default function Main() {
                     fill="white" fillOpacity="0"/>
                 <path d="M360.797 135.939V107.858H381.87V135.939H360.797Z" fill="white" fillOpacity="0"/>
                 <path
-                    d="M251.281 156.043V135.301H230.208V90.3069V63.502C230.208 49.972 244.256 44.4621 251.281 43.3984C263.627 43.292 291.767 43.1431 305.56 43.3984C319.353 43.6537 324.93 56.9072 325.994 63.502V88.3923H305.56V63.502H251.281V90.3069H325.994V110.091H251.281V135.301H325.994V156.043H251.281Z"
+                    d="M251.281 156.043V135.301H230.208V90.3069V63.502C230.208 49.972 244.256 44.4621 251.281 43.3984C263.627 43.292 291.767 43.1431 305.56 43.3984C319.353 43.6537 324.93 56.9072 325.994 63.502V88.3923H305.56V63.502H251.281V86.3069H325.994V110.091H251.281V135.301H325.994V156.043H251.281Z"
                     fill="white" fillOpacity="0"/>
-                <path d="M325.994 90.3069V88.3923H305.56V90.3069H325.994Z" fill="white" fillOpacity="0"/>
+                {/*<path d="M325.994 90.3069V88.3923H305.56V90.3069H325.994Z" fill="white" fillOpacity="0"/>*/}
             </svg>
 
             <div className={`main__container ${isActiveTitle && 'main__container_active'}`}>
                 <p className='main__subtitle'>НАША РАЗРАБОТКА — ВАШ УСПЕХ</p>
                 <div className='main__text-container'>
                     <p className='main__text'>Brand-стратегия, нэйминг, фирменный стиль, разработка сайтов,
-                        приложений и поддержка проектов</p>
+                        приложений, а также поддержка проектов</p>
                     <ul className='main__list'>
                         <li className='main__item'>
                             <p className='main__item-key'>telegram:</p>
-                            <a href="https://t.me/kreatii" className='main__item-value'>https://t.me/kreatii</a>
+                            <p className='main__item-key'>e-mail:</p>
+
                         </li>
                         <li className='main__item'>
+                            <a href="https://t.me/kreatii" className='main__item-value'>https://t.me/kreatii</a>
+                            <a href="mailto:kreati.ru@mail.ru" className='main__item-value'
+                               target='_blank'>kreati.ru@mail.ru</a>
+                        </li>
+                    </ul>
+
+
+                    <ul className='main__list-mobile'>
+                        <li className='main__item-mobile'>
+                            <p className='main__item-key'>telegram:</p>
+                            <a href="https://t.me/kreatii" className='main__item-value'>https://t.me/kreatii</a>
+                        </li>
+                        <li className='main__item-mobile'>
                             <p className='main__item-key'>e-mail:</p>
                             <a href="mailto:kreati.ru@mail.ru" className='main__item-value'
                                target='_blank'>kreati.ru@mail.ru</a>

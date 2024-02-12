@@ -33,12 +33,15 @@
             //top: 30%;
         }
         @media screen and (max-width: 767px) {
-            width: 300px;
+            width: 285px;
         }
     }
 
     &__title-svg_scale {
         transform: translate(-50%, -50%) scale(1.2);
+        @media screen and (max-width: 767px){
+            transform: translate(-50%, -50%) scale(1.1);
+        }
     }
 
     &__title-svg_position {
@@ -125,25 +128,28 @@
     &__list {
         list-style: none;
         display: flex;
-        flex-direction: column;
-        justify-content: left;
-        row-gap: 30px;
+        justify-content: center;
+        column-gap: 30px;
         align-items: center;
         @media screen and (max-height: 1022px) {
-            row-gap: 10px;
+            column-gap: 10px;
+        }
+        @media screen and (max-width: 767px) {
+            display: none;
         }
     }
 
     &__item {
         display: flex;
         justify-content: left;
-        column-gap: 40px;
+        //column-gap: 40px;
+        row-gap: 30px;
+        flex-direction: column;
         @media screen and (max-width: 1279px) {
-            column-gap: 20px;
+            row-gap: 20px;
         }
         @media screen and (max-width: 767px) {
-            flex-direction: column;
-            row-gap: 5px;
+            display: none;
         }
     }
 
@@ -173,8 +179,30 @@
             letter-spacing: 8px;
             font-size: 18px;
         }
-
     }
+
+    &__list-mobile {
+        display: none;
+        list-style: none;
+        justify-content: center;
+        row-gap: 10px;
+        align-items: center;
+        flex-direction: column;
+        @media screen and (max-width: 767px) {
+            display: flex;
+        }
+    }
+
+    &__item-mobile {
+        display: none;
+        justify-content: left;
+        flex-direction: column;
+        column-gap: 5px;
+        @media screen and (max-width: 767px) {
+            display: flex;
+        }
+    }
+
 
     &__item-value {
         color: #FFF;
@@ -309,4 +337,12 @@
             height: 250px;
         }
     }
+}
+.fill-animation {
+    fill-opacity: 0;
+    //transition: fill-opacity 2s ease; /* Продолжительность и функция сглаживания анимации */
+}
+
+.fill-animation_fill {
+    fill-opacity: 1;
 }
